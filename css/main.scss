@@ -1,0 +1,277 @@
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #fff;
+@mixin container-width {
+	width: 100%; 
+	max-width:1000px;
+	margin: 0px auto;
+	clear: both;
+}
+
+
+html,
+body,
+ul,
+ol {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font: 100% $font-stack;
+	color: $primary-color;
+	background: #01173c;
+}
+
+nav {
+	ul {
+		list-style: none;
+	}
+
+	li { display: inline-block; }
+
+	a {
+		display: block;
+		padding: 10px 15px;
+		text-decoration: none;
+		color: #fff;
+		max-width: 200px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		position: relative;
+	}
+
+	a::after{
+		content: '';
+		position: absolute;
+		right: 0;
+		height: 10px;
+		width: 1px;
+		top:13px;
+		background: white;
+	}
+
+	li:last-of-type a::after{
+		display: none;
+	}
+
+
+}
+
+header , section , footer {
+	@include container-width;
+}
+
+header{
+	height: 170px;
+}
+
+.logo a{
+	display: block;
+}
+
+.menu{
+	box-shadow: 0 40px 50px -30px #0e1b31;
+}
+
+.menu.fixed{
+	@include container-width;
+	position: fixed;
+	top: 0;
+	background: #01173c;
+	z-index: 9;
+}
+
+
+.primary-menu{
+	font-weight: bold;
+}
+
+.secondary-menu{
+	white-space: nowrap;
+	overflow: auto;
+	a{
+		color: #d2d2d2;
+		font-size: 14px;
+	}
+	
+}
+
+.image-grid{
+	@include container-width;
+	overflow: hidden;
+	div {
+		float: left;
+		width: 25%;
+		padding: 10px;
+		box-sizing: border-box;
+	}
+
+	a{
+		position: relative;
+		margin-bottom: 20px;
+		display: block;
+	}
+
+	a h3{
+		position: absolute;
+		bottom: -16px;
+		right: 0;
+		background: rgba(0,0,0,0.6);
+		padding: 7px;
+		color: #fff;
+	}
+
+	img{
+		width: 100%;
+	}
+}
+
+.three-column-text{
+	div{
+		float: left;
+		width: 33%;
+		padding: 20px;
+		margin:0;
+		box-sizing:border-box;
+	}
+}
+
+
+footer {
+	margin-top: 30px;
+	nav{
+		white-space: nowrap;
+		overflow: auto;
+	}
+}
+
+
+/* javascript part css----------- */
+
+#menu{
+	text-align: center;
+	padding-top: 100px;
+
+	li{
+		margin: 25px;
+		font-weight: bold;
+		position: relative;
+		cursor: pointer;
+	}
+
+	li::after{
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 7px 5px 0 5px;
+		border-color: #ffffff transparent transparent transparent;
+		position: absolute;
+		content: '';
+		right: -25px;
+		top: 7px;
+	}
+
+	li.static-content::after{
+		display: none;
+	}
+
+	li ul{
+		display: block;
+		position: absolute;
+		left: 0px;
+		top: 15px;
+		z-index: 9;
+	}
+
+	li ul li{
+		display: block;
+		font-weight: normal;
+		font-size: 13px;
+	}
+}
+
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-width : 0)
+and (max-width : 767px) {
+
+	header{
+		height:auto;
+	}
+
+	.mobile-menu{
+		width: 50px;
+		position: fixed;
+		right: 10px;
+		top: 10px;
+		z-index: 9;
+		background: #01173c;
+		padding: 15px 10px 5px;
+		span{
+			display: block;
+			background-color:#fff;
+			height: 2px;
+			margin-bottom: 10px;
+		}
+	}
+
+
+	.mobile-menu.close{
+		span:nth-child(2){
+			display:none;
+		}
+		span:first-child{
+			-ms-transform: rotate(45deg); /* IE 9 */
+			-webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+			transform: rotate(45deg);
+			margin-top: 10px;
+		}
+		span:last-child{
+			-ms-transform: rotate(-45deg); /* IE 9 */
+			-webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
+			transform: rotate(-45deg);
+			margin-top: -11px;
+		}
+	}
+
+
+	.menu{
+		position: relative !important;
+	}
+
+	.primary-menu{
+		position: fixed;
+		background: #01173c;
+		border-top: 1px solid;
+		width: 100%;
+		display: none;
+		top: 0;
+		padding-top: 55px;
+		z-index: 1;
+		li{
+			display: block;
+		}
+		li a{ 
+			max-width: 100%; 
+			text-align: center;
+			border-bottom: 1px solid;
+			padding: 20px;
+		}
+		a::after{
+			display: none;
+		}
+	}
+
+	.three-column-text {
+		div{
+			width: 100%;
+		}
+	}
+
+	.image-grid div{
+		width: 50%;
+	}
+}

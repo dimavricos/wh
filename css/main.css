@@ -1,0 +1,207 @@
+html,
+body,
+ul,
+ol {
+  margin: 0;
+  padding: 0; }
+
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #fff;
+  background: #01173c; }
+
+nav ul {
+  list-style: none; }
+nav li {
+  display: inline-block; }
+nav a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #fff;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative; }
+nav a::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  height: 10px;
+  width: 1px;
+  top: 13px;
+  background: white; }
+nav li:last-of-type a::after {
+  display: none; }
+
+header, section, footer {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0px auto;
+  clear: both; }
+
+header {
+  height: 170px; }
+
+.logo a {
+  display: block; }
+
+.menu {
+  box-shadow: 0 40px 50px -30px #0e1b31; }
+
+.menu.fixed {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0px auto;
+  clear: both;
+  position: fixed;
+  top: 0;
+  background: #01173c;
+  z-index: 9; }
+
+.primary-menu {
+  font-weight: bold; }
+
+.secondary-menu {
+  white-space: nowrap;
+  overflow: auto; }
+  .secondary-menu a {
+    color: #d2d2d2;
+    font-size: 14px; }
+
+.image-grid {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0px auto;
+  clear: both;
+  overflow: hidden; }
+  .image-grid div {
+    float: left;
+    width: 25%;
+    padding: 10px;
+    box-sizing: border-box; }
+  .image-grid a {
+    position: relative;
+    margin-bottom: 20px;
+    display: block; }
+  .image-grid a h3 {
+    position: absolute;
+    bottom: -16px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 7px;
+    color: #fff; }
+  .image-grid img {
+    width: 100%; }
+
+.three-column-text div {
+  float: left;
+  width: 33%;
+  padding: 20px;
+  margin: 0;
+  box-sizing: border-box; }
+
+footer {
+  margin-top: 30px; }
+  footer nav {
+    white-space: nowrap;
+    overflow: auto; }
+
+/* javascript part css----------- */
+#menu {
+  text-align: center;
+  padding-top: 100px; }
+  #menu li {
+    margin: 25px;
+    font-weight: bold;
+    position: relative;
+    cursor: pointer; }
+  #menu li::after {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 7px 5px 0 5px;
+    border-color: #ffffff transparent transparent transparent;
+    position: absolute;
+    content: '';
+    right: -25px;
+    top: 7px; }
+  #menu li.static-content::after {
+    display: none; }
+  #menu li ul {
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: 15px;
+    z-index: 9; }
+  #menu li ul li {
+    display: block;
+    font-weight: normal;
+    font-size: 13px; }
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-width: 0) and (max-width: 767px) {
+  header {
+    height: auto; }
+
+  .mobile-menu {
+    width: 50px;
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    z-index: 9;
+    background: #01173c;
+    padding: 15px 10px 5px; }
+    .mobile-menu span {
+      display: block;
+      background-color: #fff;
+      height: 2px;
+      margin-bottom: 10px; }
+
+  .mobile-menu.close span:nth-child(2) {
+    display: none; }
+  .mobile-menu.close span:first-child {
+    -ms-transform: rotate(45deg);
+    /* IE 9 */
+    -webkit-transform: rotate(45deg);
+    /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+    margin-top: 10px; }
+  .mobile-menu.close span:last-child {
+    -ms-transform: rotate(-45deg);
+    /* IE 9 */
+    -webkit-transform: rotate(-45deg);
+    /* Chrome, Safari, Opera */
+    transform: rotate(-45deg);
+    margin-top: -11px; }
+
+  .menu {
+    position: relative !important; }
+
+  .primary-menu {
+    position: fixed;
+    background: #01173c;
+    border-top: 1px solid;
+    width: 100%;
+    display: none;
+    top: 0;
+    padding-top: 55px;
+    z-index: 1; }
+    .primary-menu li {
+      display: block; }
+    .primary-menu li a {
+      max-width: 100%;
+      text-align: center;
+      border-bottom: 1px solid;
+      padding: 20px; }
+    .primary-menu a::after {
+      display: none; }
+
+  .three-column-text div {
+    width: 100%; }
+
+  .image-grid div {
+    width: 50%; } }
+
+/*# sourceMappingURL=main.css.map */
